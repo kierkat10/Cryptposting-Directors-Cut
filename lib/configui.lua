@@ -74,7 +74,7 @@ local crpTabs = function()
                                         G.MUSIC:force_update()
                                     end
                                 end,
-                                info = { "Enable or disable music for 22Exomythic4Mecipe Jokers. " }
+                                info = { "Enable or disable music for 22Exomythic4Mecipe Jokers." }
                             }),
                             create_toggle({
                                 label = "Enable All Joker Music",
@@ -138,7 +138,7 @@ SMODS.current_mod.config_tab = function()
                         update_hidden_weight_multiplier()
                     end,
                     info = {
-                        "If enabled, hidden consumables have a 3% chance instead of 0.3% in packs.",
+                        "If enabled, hidden consumables have a 3% chance to appear in packs instead of 0.3%.",
                         "(Requires a game restart to take effect)"
                     }
                 })
@@ -156,7 +156,7 @@ local function delayed_soul_rate_update()
     update_hidden_weight_multiplier()
 end
 
--- Schedule the update for after all mods are loaded (only run once)
+-- schedule the update for after all mods are loaded (only run once)
 local has_run = false
 G.E_MANAGER:add_event(Event({
     trigger = 'after',
