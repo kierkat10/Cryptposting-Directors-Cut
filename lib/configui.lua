@@ -44,18 +44,6 @@ local crpTabs = function()
                         },
                         nodes = {
                             create_toggle({
-                                label = "Enable All Joker Music",
-                                ref_table = config,
-                                ref_value = "music_all",
-                                callback = function(ref_table, ref_value, old_val, new_val)
-                                    -- trigger music system re-evaluation
-                                    if G.MUSIC then
-                                        G.MUSIC:force_update()
-                                    end
-                                end,
-                                info = { "Enable or disable music for the \"All\" Joker." }
-                            }),
-                            create_toggle({
                                 label = "Enable Mythic Music",
                                 ref_table = config,
                                 ref_value = "music_mythic",
@@ -87,6 +75,18 @@ local crpTabs = function()
                                     end
                                 end,
                                 info = { "Enable or disable music for 22Exomythic4Mecipe Jokers. " }
+                            }),
+                            create_toggle({
+                                label = "Enable All Joker Music",
+                                ref_table = config,
+                                ref_value = "music_all",
+                                callback = function(ref_table, ref_value, old_val, new_val)
+                                    -- trigger music system re-evaluation
+                                    if G.MUSIC then
+                                        G.MUSIC:force_update()
+                                    end
+                                end,
+                                info = { "Enable or disable music for the \"All\" Joker." }
                             })
                         }
                     }}
