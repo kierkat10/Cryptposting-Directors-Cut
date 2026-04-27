@@ -3,7 +3,6 @@ SMODS.Consumable{
 	name = "Wheel of Prospect",
 	set = "Tarot",
 	unlocked = true,
-	discovered = true,
 	config = { extra = { odds = 10 } },
 	loc_vars = function(self, info_queue, card)
 		info_queue[#info_queue + 1] = G.P_CENTERS.e_negative

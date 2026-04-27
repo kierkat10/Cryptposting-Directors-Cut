@@ -1,6 +1,6 @@
 -- update the cryptposting member count using https
 Cryptposting = Cryptposting or {}
-local member_fallback = 229 -- fallback member count in case the request fails or is not available
+local member_fallback = 315 -- fallback member count in case the request fails or is not available
 local succ, https = pcall(require, "SMODS.https")
 Cryptposting.member_count = member_fallback
 
@@ -16,6 +16,10 @@ local function apply_discord_member_count(code, body, headers)
 end
 
 function Cryptposting.update_member_count()
+    -- check if HTTP requests are enabled in config
+    local config = SMODS and SMODS.config or {}
+    if not config.HTTPS then return end
+    
     -- prevent multiple updates by checking if we already have a member count
     if Cryptposting.member_count ~= member_fallback then return end
     if https and https.asyncRequest then

@@ -188,6 +188,7 @@ SMODS.Joker {
 	end,
 	crp_credits = {
 		idea = { "aqrlr" },
+		idea = { "raven" },
 		code = { "Rainstar" }
 	}
 }

@@ -3,7 +3,6 @@ SMODS.Booster{
     name = "Very Rare Pack",
     atlas = "placeholder", 
     pos = { x = 8, y = 2 },
-    discovered = true,
     draw_hand = false,
     config = { choose = 1, extra = 3 },
     loc_vars = function(self, info_queue, card)
@@ -57,7 +56,6 @@ SMODS.Booster{
     name = "Very Balanced Pack",
     atlas = "placeholder",
     pos = { x = 8, y = 2 },
-    discovered = true,
     draw_hand = false,
     config = { choose = 1, extra = 5 },
     loc_vars = function(self, info_queue, card)
@@ -81,7 +79,6 @@ SMODS.Booster{
     name = "Bulgoe Pack",
     atlas = "placeholder",
     pos = { x = 8, y = 2 },
-    discovered = true,
     draw_hand = false,
     config = { choose = 1, extra = 3 },
     loc_vars = function(self, info_queue, card)
@@ -110,7 +107,6 @@ SMODS.Booster{
     name = "BIG Bulgoe Pack",
     atlas = "placeholder",
     pos = { x = 8, y = 2 },
-    discovered = true,
     draw_hand = false,
     config = { choose = 1, extra = 5 },
     loc_vars = function(self, info_queue, card)
@@ -139,7 +135,6 @@ SMODS.Booster{
     name = "Bountiful Bulgoe Pack",
     atlas = "placeholder",
     pos = { x = 8, y = 2 },
-    discovered = true,
     draw_hand = false,
     config = { choose = 2, extra = 5 },
     loc_vars = function(self, info_queue, card)

@@ -7,7 +7,6 @@ SMODS.Consumable {
 	soul_pos = { x = 2, y = 0, extra = { x = 1, y = 0 }},
 	cost = 15,
 	unlocked = true,
-	discovered = true,
 	atlas = "crp_consumable",
 	loc_vars = function(self, info_queue, card)
 		return { vars = { lenient_bignum(card.ability.extra.money), colours = { { 0.78, 0.35, 0.52, 1 } } } }
@@ -64,7 +63,6 @@ SMODS.Consumable {
 	soul_pos = { x = 2, y = 0, extra = { x = 1, y = 0 }},
 	cost = 30,
 	unlocked = true,
-	discovered = true,
 	atlas = "crp_consumable",
 	hidden = true,
 	can_use = function(self, card)
@@ -116,7 +114,6 @@ SMODS.Consumable {
 	soul_pos = { x = 2, y = 0, extra = { x = 1, y = 0 }},
 	cost = 60,
 	unlocked = true,
-	discovered = true,
 	atlas = "crp_consumable",
 	hidden = true,
 	can_use = function(self, card)
@@ -193,7 +190,6 @@ SMODS.Consumable{
 	name = "Happiness",
 	set = "Spectral",
 	unlocked = true,
-	discovered = true,
 	atlas = "crp_placeholder",
 	pos = { x = 2, y = 2 },
 	can_use = function(self, card)
@@ -225,7 +221,6 @@ SMODS.Consumable {
     name = "Sadness",
     set = "Spectral",
     unlocked = true,
-    discovered = true,
     atlas = "crp_placeholder",
     pos = {
         x = 2,
@@ -260,7 +255,6 @@ SMODS.Consumable{
 	name = "Neutrality",
 	set = "Spectral",
 	unlocked = true,
-	discovered = true,
 	atlas = "crp_placeholder",
 	pos = { x = 2, y = 2 },
 	can_use = function(self, card)
@@ -341,7 +335,6 @@ SMODS.Consumable {
     soul_pos = { x = 2, y = 0, extra = { x = 1, y = 0 } },
     cost = 120,
     unlocked = true,
-    discovered = true,
 	hidden = true,
     atlas = "crp_consumable",
 	can_use = function(self, card)
@@ -422,7 +415,6 @@ SMODS.Consumable {
 	cost = 120,
 	config = { extra = { hands = -27, discards = -27 } },
 	unlocked = true,
-	discovered = true,
 	atlas = "crp_consumable",
 	hidden = true,
 	can_use = function(self, card)
@@ -470,8 +462,8 @@ SMODS.Consumable {
 								G.GAME.tags = {}
 							end
 							createfulldeck() -- create new deck
-							G.GAME.round_resets.hands = 4
-							G.GAME.round_resets.discards = 4
+							G.GAME.round_resets.hands = G.GAME.round_resets.hands + card.ability.extra.hands
+							G.GAME.round_resets.discards = G.GAME.round_resets.discards + card.ability.extra.discards
 							ease_hands_played(card.ability.extra.hands)
 							ease_discard(card.ability.extra.discards)
 							return true
@@ -504,7 +496,6 @@ SMODS.Consumable {
 	soul_pos = { x = 2, y = 0, extra = { x = 1, y = 0 }},
 	cost = 9827,
 	unlocked = true,
-	discovered = true,
 	atlas = "crp_consumable",
 	hidden = true,
 	can_use = function(self, card)
@@ -525,7 +516,7 @@ SMODS.Consumable {
 					major = card,
 					backdrop_colour = G.C.SECONDARY_SET.Tarot,
 					align = (G.STATE == G.STATES.TAROT_PACK or G.STATE == G.STATES.SPECTRAL_PACK) and "tm" or "cm",
-					offset = {x = 0, y = (G.STATE == G.STATES.TAROT_PACK or G.STATE == G.STATES.SPECTRAL_PACK) and -0.2 or 0},
+					offset = { x = 0, y = (G.STATE == G.STATES.TAROT_PACK or G.STATE == G.STATES.SPECTRAL_PACK) and -0.2 or 0 },
 					silent = true
 				})
 				G.E_MANAGER:add_event(Event({trigger = "after", delay = 0.06*G.SETTINGS.GAMESPEED, blockable = false, blocking = false, func = function()
@@ -545,10 +536,10 @@ SMODS.Consumable {
 		else
 			-- 50% chance to create all
 			play_sound("timpani")
-			local card = create_card("Joker", G.jokers, nil, "crp_all", nil, nil, nil, "crp_all_or_nothing")
-			card:add_to_deck()
-			G.jokers:emplace(card)
-			card:juice_up(0.3, 0.5)
+			SMODS.add_card {
+				key = "j_crp_all",
+				key_append = "crp_all_or_nothing"
+			}
 			return true
 		end
 		delay(0.6)

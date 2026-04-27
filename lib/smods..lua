@@ -107,6 +107,20 @@ SMODS.Atlas {
 	py = 95
 }
 
+SMODS.Atlas({
+	key = "modicon",
+	path = "crp_icon.png",
+	px = 34,
+	py = 34,
+})
+
+SMODS.Atlas {
+	key = "directors_cut",
+	path = "directors_cut.png",
+	px = 71,
+	py = 95
+}
+
 -- shaders
 
 SMODS.Shader {

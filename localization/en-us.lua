@@ -990,7 +990,7 @@ return {
 				name = "Chibidoki",
 				text = {
 					"{C:crp_unrare}Unrare{} and higher",
-					"rarity {C:attention}Jokers{} give",
+					"rarity {C:attention}Jokers{} each give",
 					"{C:white,B:1}X#1#{} Chips & Mult" -- plasma deck colors
 				}
 			},
@@ -1107,7 +1107,7 @@ return {
 				name = "Resurgo",
 				text = {
 					"{C:white,X:dark_edition}^[Ante]{} Mult",
-					"{C:inactive}(Currently {C:white,X:dark_edition}^#1# {C:inactive}Mult)",
+					"{C:inactive}(Currently {C:white,X:dark_edition}^#1#{C:inactive} Mult)",
 				}
 			},
 			j_crp_peripheria_ad_diametrum = {
@@ -1192,6 +1192,7 @@ return {
 					"{C:white,X:mult}X#1#{} Mult",
 					"Decreases by {C:white,X:mult}X#2#{} Mult",
 					"at end of round",
+					"{C:inactive}\"Divide it by 0.\""
 				},
 			},
 			j_crp_highest_chip = {
@@ -1245,7 +1246,8 @@ return {
 			j_crp_fiorello_giraud = {
 				name = "Fiorello Giraud",
 				text = {
-					"Gains {C:dark_edition,X:edition}^^^#2#{} Mult per destroyed face card",
+					"This Joker gains {C:dark_edition,X:edition}^^^#2#{} Mult",
+					"when a {C:attention}face card{} is destroyed",
 					"{C:inactive}(Currently {C:dark_edition,X:edition}^^^#1#{C:inactive} Mult)",
 				},
 			},
@@ -1259,7 +1261,8 @@ return {
 			j_crp_richard_tarlton = {
 				name = "Richard Tarlton",
 				text = {
-					"Gains {C:edition,X:dark_edition}^^#2#{} Mult per discarded card",
+					"This Joker gains {C:edition,X:dark_edition}^^#2#{} Mult",
+					"when a card is discarded",
 					"{C:inactive}(Currently {C:edition,X:dark_edition}^^#1#{C:inactive} Mult)",
 				},
 			},

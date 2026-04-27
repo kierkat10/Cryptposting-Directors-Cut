@@ -2,18 +2,14 @@ SMODS.Sound({
     key = "music_all",
     path = "music_all.ogg",
     select_music_track = function()
-        --[[
         -- check if the music_all setting is enabled
-        if not (cryptposting_config and cryptposting_config.music_all) then
+        if not (SMODS.config and SMODS.config.music_all) then
             return false
         end
-        ]]--
         if next(Cryptid.advanced_find_joker(nil, "crp_all", nil, nil, true)) then
             return 1.3e308
-        --[[
         else
             return false
-        ]]--
         end
     end,
 })
@@ -24,17 +20,13 @@ SMODS.Sound({
     volume = 1.5,
     select_music_track = function()
         -- check if the music_mythic setting is enabled
-        --[[
-        if not (cryptposting_config and cryptposting_config.music_mythic) then
+        if not (SMODS.config and SMODS.config.music_mythic) then
             return false
         end
-        ]]--
         if next(Cryptid.advanced_find_joker(nil, "crp_mythic", nil, nil, true)) then
             return 1e308
-        --[[
         else
             return false
-        ]]--
         end
     end,
 })
@@ -45,18 +37,14 @@ SMODS.Sound({
     volume = 1.5,
     select_music_track = function()
         -- check if the music_exomythic setting is enabled
-        --[[
-        if not (cryptposting_config and cryptposting_config.music_exomythic) then
+        if not (SMODS.config and SMODS.config.music_exomythic) then
             return false
         end
-        ]]--
         if next(Cryptid.advanced_find_joker(nil, "crp_exomythic", nil, nil, true))
         or next(Cryptid.advanced_find_joker(nil, "crp_2exomythic4me", nil, nil, true)) then
             return 1.1e308
-        --[[
         else
             return false
-        ]]--
         end
     end,
 })
@@ -67,19 +55,15 @@ SMODS.Sound({
     volume = 1.5,
     select_music_track = function()
         -- check if the music_22exomythic4mecipe setting is enabled
-        --[[
-        if not (cryptposting_config and cryptposting_config.music_22exomythic4mecipe) then
+        if not (SMODS.config and SMODS.config.music_22exomythic4mecipe) then
             return false
         end
-        ]]--
         if next(Cryptid.advanced_find_joker(nil, "crp_22exomythic4mecipe", nil, nil, true))
         or next(Cryptid.advanced_find_joker(nil, "crp_exomythicepicawesomeuncommon2mexotic22exomythic4mecipe", nil, nil, true))
         or next(Cryptid.advanced_find_joker(nil, "crp_supa_rare", nil, nil, true)) then
             return 1.2e308
-        --[[
         else
             return false
-        ]]--
         end
     end,
 })

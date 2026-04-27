@@ -1,7 +1,7 @@
 SMODS.Joker {
 	key = "sprinter",
 	name = "Sprinter",
-	config = { extra = { chips = 0, chips_scale = 75 } },
+	config = { extra = { chips = 0, chips_mod = 75 } },
 	rarity = "crp_plentiful",
 	atlas = "crp_joker",
 	pos = { x = 4, y = 0 },
@@ -10,7 +10,7 @@ SMODS.Joker {
 	demicoloncompat = true,
 	perishable_compat = false,
 	loc_vars = function(self, info_queue, card)
-		return { vars = { lenient_bignum(card.ability.extra.chips), lenient_bignum(card.ability.extra.chips_scale) } }
+		return { vars = { lenient_bignum(card.ability.extra.chips), lenient_bignum(card.ability.extra.chips_mod) } }
 	end,
 	calculate = function(self, card, context)
 		if (context.joker_main) or context.forcetrigger then
@@ -19,12 +19,12 @@ SMODS.Joker {
 			}
 		end
 		if (context.before and next(context.poker_hands["Straight Flush"]) and not context.blueprint) or context.forcetrigger then
-			card.ability.extra.chips = lenient_bignum(card.ability.extra.chips) + lenient_bignum(card.ability.extra.chips_scale)
-			return {
-				message = "Upgraded!",
-				colour = G.C.CHIPS,
-				
-			}
+			SMODS.scale_card(card, {
+                ref_table = card.ability.extra,
+                ref_value = "chips",
+                scalar_value = "chips_mod",
+                colour = G.C.CHIPS
+            })
 		end
 	end,
 	in_pool = function(self, args)

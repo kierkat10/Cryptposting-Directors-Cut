@@ -1,3 +1,8 @@
+SMODS.Voucher {
+    key = "cryptposting_directors_cut",
+    atlas = "directors_cut",
+}
+
 local oldfunc = Game.main_menu
 Game.main_menu = function(change_context)
 	local ret = oldfunc(change_context)
@@ -8,7 +13,7 @@ Game.main_menu = function(change_context)
 		G.CARD_W,
 		G.CARD_H,
 		G.P_CARDS.empty,
-		G.P_CENTERS.j_crp_bulgoe,
+		G.P_CENTERS.v_crp_cryptposting_directors_cut,
 		{ bypass_discovery_center = true }
 	)
     newcard:set_edition("e_crp_overloaded")
@@ -42,13 +47,6 @@ Game.main_menu = function(change_context)
 end
 
 Cryptid.mod_whitelist["Cryptposting"] = true
-
-SMODS.Atlas({
-	key = "modicon",
-	path = "crp_icon.png",
-	px = 34,
-	py = 34,
-})
 
 SMODS.Joker:take_ownership("invisible", {
 	loc_vars = function(self, info_queue, card)

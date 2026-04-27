@@ -34,7 +34,7 @@ SMODS.Joker {
 	end,
 	crp_credits = {
 		idea = { "superb_thing" },
-		idea = { "galacticbambo" },
+		art = { "galacticbambo" },
 		code = { "Rainstar" },
 	}
 }
@@ -98,7 +98,7 @@ SMODS.Joker {
 	end,
 	crp_credits = {
 		idea = { "Poker The Poker", "Glitchkat10" },
-		idea = { "Canadian Shark" },
+		art = { "Canadian Shark" },
 		code = { "wilfredlam0418" },
 	}
 }

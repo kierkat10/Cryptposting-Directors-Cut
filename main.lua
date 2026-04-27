@@ -4,6 +4,7 @@
 local files = {
     "lib/settings",
     "config",
+    "lib/configui",
     "lib/smods.", -- extra . is intentional
     -- then load everything else
     "items/consumable/tarot",

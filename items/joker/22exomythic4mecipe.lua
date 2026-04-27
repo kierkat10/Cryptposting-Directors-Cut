@@ -103,7 +103,7 @@ SMODS.Joker {
 SMODS.Joker {
 	key = "obligatory_scaling_operator", -- goodbye playerrwon
 	name = "Obligatory Scaling Hyperoperator Joker",
-	config = { extra = { arrows = 1, placebo = 2, arrows_scale = 1, mult = 2 }, immutable = { max = 9827 } },
+	config = { extra = { arrows = 1, placebo = 2, arrows_mod = 1, mult = 2 }, immutable = { max = 9827 } },
 	rarity = "crp_22exomythic4mecipe",
 	atlas = "crp_placeholder",
 	pos = { x = 10, y = 0 },
@@ -113,7 +113,15 @@ SMODS.Joker {
 	demicoloncompat = true,
 	perishable_compat = false,
 	loc_vars = function(self, info_queue, card)
-		return { vars = { lenient_bignum(math.min(lenient_bignum(card.ability.extra.arrows), lenient_bignum(card.ability.immutable.max))), lenient_bignum(card.ability.extra.placebo), lenient_bignum(card.ability.extra.arrows_scale), "{", "}" } }
+		return {
+			vars = { 
+				lenient_bignum(math.min(lenient_bignum(card.ability.extra.arrows), lenient_bignum(card.ability.immutable.max))), 
+				lenient_bignum(card.ability.extra.placebo), 
+				lenient_bignum(card.ability.extra.arrows_mod), 
+				"{",
+				"}" 
+			} 
+		}
 	end,
 	calculate = function(self, card, context)
 		if (context.joker_main) or context.forcetrigger then
@@ -174,18 +182,18 @@ SMODS.Joker {
 			end
 		end
 		if (context.end_of_round and not context.blueprint and not context.retrigger and context.main_eval) or context.forcetrigger then
-			card.ability.extra.arrows = lenient_bignum(card.ability.extra.arrows) + lenient_bignum(card.ability.extra.arrows_scale)
+			card.ability.extra.arrows = lenient_bignum(card.ability.extra.arrows) + lenient_bignum(card.ability.extra.arrows_mod)
 			if to_big(card.ability.extra.arrows) > to_big(100) then
 				card.ability.extra.mult = lenient_bignum(1e300)
 			end
-			if card.ability.extra.arrows_scale == 1 then
+			if card.ability.extra.arrows_mod == 1 then
 				return {
-					message = "+" .. (lenient_bignum(card.ability.extra.arrows_scale)) .. " Arrow",
+					message = "+" .. (lenient_bignum(card.ability.extra.arrows_mod)) .. " Arrow",
 					colour = G.C.EDITION
 				}
 			else
 				return {
-					message = "+" .. (lenient_bignum(card.ability.extra.arrows_scale)) .. " Arrows",
+					message = "+" .. (lenient_bignum(card.ability.extra.arrows_mod)) .. " Arrows",
 					colour = G.C.EDITION
 				}
 			end

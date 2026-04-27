@@ -142,7 +142,12 @@ SMODS.Joker {
 	demicoloncompat = true,
 	perishable_compat = false,
 	loc_vars = function(self, info_queue, card)
-		return { vars = { lenient_bignum(card.ability.extra.eemult), lenient_bignum(card.ability.extra.eemult_mod) } }
+		return {
+			vars = {
+				lenient_bignum(card.ability.extra.eemult), 
+				lenient_bignum(card.ability.extra.eemult_mod) 
+			}
+		}
 	end,
 	calculate = function(self, card, context)
 		if (context.joker_main) or context.forcetrigger then
@@ -177,7 +182,12 @@ SMODS.Joker {
 	pools = { Bulgoe = true },
 	pronouns = "bulgoe",
     loc_vars = function(self, info_queue, card)
-        return { vars = { card.ability.extra.eemult_mod, card.ability.extra.eemult_mod * Cryptposting.member_count, }, }
+        return {
+			vars = {
+				lenient_bignum(card.ability.extra.eemult_mod), 
+				lenient_bignum(card.ability.extra.eemult_mod * Cryptposting.member_count), 
+			}
+		}
     end,
     calculate = function(self, card, context)
         if (context.joker_main and card.ability.extra.eemult_mod * Cryptposting.member_count > 1) or context.forcetrigger then
@@ -201,7 +211,7 @@ SMODS.Joker {
 SMODS.Joker {
 	key = "underflow",
 	name = "Underflow",
-	config = { extra = { xmult = 1, xmult_scale = 1 } },
+	config = { extra = { xmult = 1, xmult_mod = 1 } },
 	rarity = "crp_mythic",
 	atlas = "crp_joker",
 	pos = { x = 5, y = 6 },
@@ -211,7 +221,12 @@ SMODS.Joker {
 	demicoloncompat = true,
 	perishable_compat = false,
 	loc_vars = function(self, info_queue, card)
-		return { vars = { lenient_bignum(card.ability.extra.xmult), lenient_bignum(card.ability.extra.xmult_scale) } }
+		return {
+			vars = { 
+				lenient_bignum(card.ability.extra.xmult), 
+				lenient_bignum(card.ability.extra.xmult_mod) 
+			}
+		}
 	end,
 	calculate = function(self, card, context)
 		if ((context.joker_main) or context.forcetrigger) and to_big(card.ability.extra.xmult) ~= to_big(0) then
@@ -221,7 +236,7 @@ SMODS.Joker {
 		end
 		if (context.end_of_round and not context.blueprint and context.main_eval and not context.retrigger_joker) or context.forcetrigger then
 			if to_big(card.ability.extra.xmult) > to_big(-1) then
-				card.ability.extra.xmult = lenient_bignum(card.ability.extra.xmult) - lenient_bignum(card.ability.extra.xmult_scale)
+				card.ability.extra.xmult = lenient_bignum(card.ability.extra.xmult) - lenient_bignum(card.ability.extra.xmult_mod)
 			end
 			if to_big(card.ability.extra.xmult) <= to_big(-1) then
 				card.ability.extra.xmult = 1.79769e308 -- oops
@@ -275,9 +290,6 @@ SMODS.Joker {
 	cost = 100,
 	blueprint_compat = true,
 	demicoloncompat = true,
-	loc_vars = function(self, info_queue, card)
-		return { vars = { } }
-	end,
 	calculate = function(self, card, context)
 		if (context.joker_main) or context.forcetrigger then
 			local current_chips = lenient_bignum(hand_chips)
