@@ -509,7 +509,7 @@ SMODS.Voucher {
 	requires = { "v_crp_payoff" },
     redeem = function(self, card)
         for i = 1, lenient_bignum(card.ability.extra.all_count) do
-			local card = create_card("Joker", G.jokers, nil, "crp_all", nil, nil, nil, "just_kidding")
+			local card = create_card("Joker", G.jokers, nil, nil, nil, nil, "j_crp_all", "just_kidding")
 			card:set_edition({ negative = true }, true)
 			card:add_to_deck()
 			G.jokers:emplace(card)

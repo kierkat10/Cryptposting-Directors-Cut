@@ -22,10 +22,10 @@ SMODS.Joker { -- IT'S ALIVE
 	calculate = function(self, card, context)
 		if context.selling_self then
 			for i = 1, #G.P_CENTER_POOLS.Joker do
-            	SMODS.add_card({ set = 'Joker', key = G.P_CENTER_POOLS["Joker"][i].key })
+				SMODS.add_card({ set = 'Joker', key = G.P_CENTER_POOLS["Joker"][i].key, discovered = false })
 			end
 			for i = 1, #G.P_CENTER_POOLS.Consumeables do
-            	SMODS.add_card({ set = 'Consumeable', key = G.P_CENTER_POOLS["Consumeable"][i].key })
+				SMODS.add_card({ set = 'Consumeable', key = G.P_CENTER_POOLS["Consumeable"][i].key, discovered = false })
 			end
 		end
 	end,

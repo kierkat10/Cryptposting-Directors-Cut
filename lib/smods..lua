@@ -213,11 +213,15 @@ SMODS.Sound {
 SMODS.Sound {
 	key = "e_overloaded",
 	path = "e_overloaded.ogg",
+	loop = false,
+	volume = 0.4,
 }
 
 SMODS.Sound {
 	key = "e_four-dimensional",
 	path = "e_four-dimensional.ogg",
+	loop = false,
+	volume = 0.4,
 }
 
 -- objecttypes
